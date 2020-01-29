@@ -51,7 +51,5 @@ int main()
     cout << myCircuit.calculateResistance() << endl;
     }
 
-
-
 }
 
