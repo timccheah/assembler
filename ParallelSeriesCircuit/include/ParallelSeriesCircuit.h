@@ -2,6 +2,7 @@
 #define PARALLELSERIESCIRCUIT_H
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 class ParallelSeriesCircuit
 {
@@ -11,6 +12,7 @@ class ParallelSeriesCircuit
 
         std::vector<double> resistors;
 
+
         char GetuserChoice() { return userChoice; }
         void SetuserChoice(char val) { userChoice = val; }
 
@@ -18,11 +20,11 @@ class ParallelSeriesCircuit
         void SetParallelResistance()
         {
         //ParallelResistance = val;
-            double TotalResistance = 0;
+            double pResistance = 0;
             for (int i = 0; i < resistors.size(); i++) {
-                TotalResistance = 1 /i + TotalResistance;
+                pResistance = 1 / resistors.at(i) + pResistance;
             }
-            ParallelResistance = 1 / TotalResistance;
+            ParallelResistance = 1 / pResistance;
         }
 
 
@@ -30,11 +32,11 @@ class ParallelSeriesCircuit
         void SetSeriesResistance()
         {
         //SeriesResistance = val;
-        double TotalResistance = 0;
+        double tResistance = 0;
             for (int i = 0; i < resistors.size(); i++) {
-            TotalResistance = i + TotalResistance;
+            tResistance = resistors.at(i) + tResistance;
             }
-        SeriesResistance = TotalResistance;
+        SeriesResistance = tResistance;
         }
 
         double GetTotalResistance() {

@@ -25,10 +25,9 @@ int main()
     cin >> resistance;
         if (resistance !=0) {
             myParallelSeriesCircuit.addResistance(resistance);
+            cout << myParallelSeriesCircuit.resistors.size() << endl;
         }
     } while (resistance != 0);
-    cout << myParallelSeriesCircuit.GetParallelResistance() << endl;
-    cout << myParallelSeriesCircuit.GetSeriesResistance() << endl;
-
+    cout << myParallelSeriesCircuit.GetuserChoice() << endl;
     cout << "The resistance of the circuit is " << myParallelSeriesCircuit.GetTotalResistance() << " Ohms" <<endl;
 }

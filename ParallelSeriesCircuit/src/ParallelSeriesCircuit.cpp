@@ -9,13 +9,3 @@ ParallelSeriesCircuit::~ParallelSeriesCircuit()
 {
     //dtor
 }
-
-
-double ParallelSeriesCircuit::calculateParallelResistance() {
-
-
-}
-double ParallelSeriesCircuit::calculateSeriesResistance() {
-
-
-}
