@@ -9,7 +9,7 @@ int main()
         double ParallelResistance;
         double TotalResistance;
         double SeriesResistance;
-        char userChoice;
+        short userChoice;
 
     cout << "Is this circuit type a (1) Parallel or (2) Series?" << endl;
     cin >> userChoice;

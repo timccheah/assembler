@@ -13,8 +13,8 @@ class ParallelSeriesCircuit
         std::vector<double> resistors;
 
 
-        char GetuserChoice() { return userChoice; }
-        void SetuserChoice(char val) { userChoice = val; }
+        short GetuserChoice() { return userChoice; }
+        void SetuserChoice(short val) { userChoice = val; }
 
         double GetParallelResistance() { return ParallelResistance; }
         void SetParallelResistance()
@@ -65,7 +65,7 @@ class ParallelSeriesCircuit
     protected:
 
     private:
-        char userChoice;
+        short userChoice;
         double ParallelResistance;
         double TotalResistance;
         double SeriesResistance;
