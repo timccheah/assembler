@@ -1,11 +1,11 @@
 #include <iostream>
-#include "ParallelAndSeriesCircuit.h"
+#include "ParallelSeriesCircuit.h"
 
 using namespace std;
 
 int main()
 {
-    ParallelAndSeriesCircuit myParallelAndSeriesCircuit;
+    ParallelSeriesCircuit myParallelSeriesCircuit;
         double ParallelResistance;
         double TotalResistance;
         double SeriesResistance;
@@ -13,7 +13,7 @@ int main()
 
     cout << "Is this circuit type a (1) Parallel or (2) Series?" << endl;
     cin >> userChoice;
-    myParallelAndSeriesCircuit.SetuserChoice(userChoice);
+    myParallelSeriesCircuit.SetuserChoice(userChoice);
 
     cout << "Please enter the resistance or each resistors, type '0' when finished." << endl;
 
@@ -24,10 +24,11 @@ int main()
         i++;
     cin >> resistance;
         if (resistance !=0) {
-            myParallelAndSeriesCircuit.addResistance(resistance);
+            myParallelSeriesCircuit.addResistance(resistance);
         }
     } while (resistance != 0);
-    cout << myParallelAndSeriesCircuit.GetuserChoice() << endl;
-    cout << myParallelAndSeriesCircuit <<
-    cout << "The resistance of the circuit is " << myParallelAndSeriesCircuit.GetTotalResistance() << " Ohms" <<endl;
+    cout << myParallelSeriesCircuit.GetParallelResistance() << endl;
+    cout << myParallelSeriesCircuit.GetSeriesResistance() << endl;
+
+    cout << "The resistance of the circuit is " << myParallelSeriesCircuit.GetTotalResistance() << " Ohms" <<endl;
 }
