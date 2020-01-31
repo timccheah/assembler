@@ -25,7 +25,7 @@ int main()
     cin >> resistance;
         if (resistance !=0) {
             myParallelSeriesCircuit.addResistance(resistance);
-            cout << myParallelSeriesCircuit.resistors.size() << endl;
+           // cout << myParallelSeriesCircuit.resistors.size() << endl;
         }
     } while (resistance != 0);
     cout << myParallelSeriesCircuit.GetuserChoice() << endl;
