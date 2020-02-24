@@ -4,19 +4,36 @@
 // * = value of
 // & = memory of
 
+void getResult (double parameter, int* resultCode, double* value) {
+// do omething complicated and return a code and message
+// return an int and a string in Java
+
+*resultCode = 777;
+*value = 2.82;
+}
+
+
+
 double square (double* valueToSquare) {
 *valueToSquare *= *valueToSquare;
 return *valueToSquare;
 }
 
 int main() {
+int result;
+double value;
+getResult(5,&result,&value);
+printf("This code is %d and the answer is %lf\n",result,value);
+return 0;
+
+/*
 double value = 5;
 square(&value);
 
 printf("The value is %1f\n",value);
 
 return 0;
-
+*/
 /*
     int phillip = 5; //0101
     int chad = 13;   //1101
