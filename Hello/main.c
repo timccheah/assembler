@@ -10,6 +10,7 @@ void getVoltage (double amperage, double resistance, double* voltage){
 
 void getAmperage (double* amperage, double resistance, double voltage) {
     *amperage = voltage / resistance;
+
 }
 
 void getResistance (double amperage, double* resistance, double voltage) {
@@ -31,15 +32,55 @@ return *valueToSquare;
 }
 
 int main() {
-double amperage = 10;
-double resistance = 5, voltage;
+double userChoice;
+double voltage;
+double amperage;
+double resistance;
+
+printf("What would you like to calculate: 1)Voltage 2)Amperage 3)Resistance");
+scanf("%lf", &userChoice);
+// Voltage
+if (userChoice == 1){
+printf("We will calculate voltage\n");
+printf("Please enter Amperage");
+scanf("%lf", &amperage);
+printf("Please enter Resistance");
+scanf("%lf", &resistance);
+getVoltage(amperage, resistance, &voltage);
+printf("The voltage is  %lf", voltage);
+
+} else if (userChoice == 2) {
+printf("We will calculate amperage\n");
+printf("Please enter voltage");
+scanf("%lf", &voltage);
+printf("Please enter resistance");
+scanf("%lf", &resistance);
+getAmperage(&amperage, resistance, voltage);
+printf("The amperage is  %lf", amperage);
+
+
+} else if (userChoice == 3) {
+printf("We will calculate resistance\n");
+printf("Please enter voltage");
+scanf("%lf", &voltage);
+printf("Please enter amperage");
+scanf("%lf", &amperage);
+getResistance(amperage, &resistance, voltage);
+printf("The resistace is %lf", resistance);
+
+}
+/*
+printf("Please enter the voltage");
+scanf("%lf", &voltage);
+printf("The voltage is %lf", voltage);
+
 
 getVoltage(amperage, resistance, &voltage);
 printf("The voltage is %lf", voltage);
 printf("Resistance is %lf", resistance);
 
 
-/*
+
 int result;
 double value;
 getResult(5,&result,&value);
