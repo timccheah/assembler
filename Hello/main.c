@@ -16,21 +16,12 @@ void getAmperage (double* amperage, double resistance, double voltage) {
 void getResistance (double amperage, double* resistance, double voltage) {
     *resistance = voltage / amperage;
 }
-
-void getResult (double parameter, int* resultCode, double* value) {
-// do omething complicated and return a code and message
-// return an int and a string in Java
-
-*resultCode = 777;
-*value = 2.82;
-}
-
-
+/*
 double square (double* valueToSquare) {
 *valueToSquare *= *valueToSquare;
 return *valueToSquare;
 }
-
+*/
 int main() {
 double userChoice;
 double voltage;
