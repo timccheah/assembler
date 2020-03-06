@@ -4,24 +4,25 @@
 int CalculateTotal(int);
 
 int CalculateTotal(int x){
-  if (n == 0 || n == 1)
-    return n;
-  else
-    return (f(n-1) + f(n-2));
-    }
-
+  if (x == 0 || x == 1) {
+    return x;
+  } else {
+    return (CalculateTotal(x-1) + CalculateTotal(x-2));
+  }
 }
 
+
 int main() {
-  int n, i = 0, c;
-  printf("Enter the number of terms: ");
-  scanf(" %d", &n);
-  printf("Integer Sequence:\n");
+    int number;
+    int i = 0;
+    int c;
+    printf("How large(in numbers) would you like your sequence to be? ");
+    scanf(" %d", &number);
+    printf("Integer Sequence: \n");
 
-  for (c = 1; c <= n; c++)  {
-    printf("  %d", f(i));
-    i++;
-  }
-
+    while (i < number) {
+        printf("  %d", CalculateTotal(i));
+        i++;
+    }
   return 0;
 }
