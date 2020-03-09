@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1583743519 source:c:\users\user\documents\tim\college of the ozarks\2020 spring\csc243 architecture and assembler\c lab 03 parallelseries\clab03\main.c
+	<stdio.h>
+	<stdlib.h>
+
