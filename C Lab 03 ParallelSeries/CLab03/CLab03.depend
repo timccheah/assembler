@@ -2,8 +2,18 @@
 1583743519 source:c:\users\user\documents\tim\college of the ozarks\2020 spring\csc243 architecture and assembler\c lab 03 parallelseries\clab03\main.c
 	<stdio.h>
 	<stdlib.h>
+<<<<<<< HEAD
 
 1583743915 source:c:\users\user\documents\git\assembler\c lab 03 parallelseries\clab03\main.c
 	<stdio.h>
 	<stdlib.h>
 
+=======
+
+1583743519 
+
+1583781101 source:/home/timothyccheah/git/assembler/C Lab 03 ParallelSeries/CLab03/main.c
+	<stdio.h>
+	<stdlib.h>
+
+>>>>>>> 1719a718de49ff9484e5aebc1ef67b37893d9035
