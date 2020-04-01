@@ -1,11 +1,11 @@
-segment.data
+    segment.data
 msg: db 'Hello world!', 0x0a    ;String to print
 len: equ    $-msg   ;String length
 
     segment.text
     global main     ;Tell linker about main
     extern write, exit
-main;
+main:
     push rbp
     mov rbp,rsp
         ;Up to 6 integer register parameters
