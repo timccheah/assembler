@@ -1502,22 +1502,47 @@
    626                              <1> %rotate 1
    627                              <1> %endrep
    628                              <1> %endmacro
-     1                                  section     .text
-     2                                  global      _start                              ;must be declared for linker (ld)
-     3                                  
-     4                                  _start:                                         ;tell linker entry point
+     1                                  segment .data
+     2 00000000 0800000000000000        voltage     dq  8   ;value to calculate
+     3 00000008 0200000000000000        amperage    dq  2  ;amperage input
+     4 00000010 0000000000000000        resistance  dq  0   ;resistance input
      5                                  
-     6 00000000 BA0E000000                  mov     edx,len                             ;message length
-     7 00000005 B9[00000000]                mov     ecx,msg                             ;message to write
-     8 0000000A BB01000000                  mov     ebx,1                               ;file descriptor (stdout)
-     9 0000000F B804000000                  mov     eax,4                               ;system call number (sys_write)
-    10 00000014 CD80                        int     0x80                                ;call kernel
-    11                                  
-    12 00000016 B801000000                  mov     eax,1                               ;system call number (sys_exit)
-    13 0000001B CD80                        int     0x80                                ;call kernel
-    14                                  
-    15                                  section     .data
-    16                                  
-    17 00000000 48656C6C6F2C20776F-     msg     db  'Hello, world!',0xa                 ;our dear string
-    17 00000009 726C64210A         
-    18                                  len     equ $ - msg                             ;length of our dear string
+     6                                          segment .text
+     7                                          global main 
+     8                                  main:
+     9                                  ;move variable to registers
+    10 00000000 488B0425[00000000]      mov rax,[voltage]
+    11 00000008 488B1C25[08000000]      mov rbx,[amperage]
+    12 00000010 488B0C25[10000000]      mov rcx, [resistance]
+    13                                  
+    14                                  ; if voltage is zero, calculate voltage
+    15                                  voltage_section:
+    16 00000018 4883F800                cmp rax, 0
+    17 0000001C 750E                    jne amperage_section
+    18 0000001E 480FAFD9                imul rbx,rcx
+    19 00000022 48891C25[00000000]      mov[voltage],rbx
+    20 0000002A EB36                    jmp end
+    21                                  
+    22                                  ;if amperage is zero, calculate amperage
+    23                                  amperage_section:
+    24 0000002C 4883FB00                cmp rbx, 0          ;see if we are calculating amperage by testing
+    25 00000030 751A                    jne resistance_section      ; if we are not canculating amperage go to next test
+    26 00000032 4889CB                  mov rbx, rcx        ; move voltage to rax register. now voltage is in rax and resistance is in rbx
+    27 00000035 B900000000              mov rcx,0           ; clear the rcx register
+    28 0000003A BA00000000              mov rdx, 0          ; clear the rdx register
+    29 0000003F 48F7FB                  idiv rbx            ; how you divide numbers. Takes rax / rbx. Stores result in rax. Stores remainder in rdx.
+    30 00000042 48890425[08000000]      mov [amperage],rax  ;rax is the amperage
+    31 0000004A EB16                    jmp end
+    32                                  
+    33                                  
+    34                                  ;if resistance is zero, calculate resistance
+    35                                  resistance_section:
+    36 0000004C 4889D9                  mov rcx, rbx
+    37 0000004F 4889C3                  mov rbx, rax
+    38                                  ;mov rax, 0
+    39 00000052 BA00000000              mov rdx, 0
+    40 00000057 48F7F9                  idiv rcx
+    41 0000005A 48891C25[10000000]      mov [resistance],rbx    ;rax is the resistance
+    42                                  
+    43                                  
+    44                                  end:
