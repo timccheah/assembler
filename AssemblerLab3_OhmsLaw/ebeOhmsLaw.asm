@@ -1,7 +1,7 @@
 segment .data
-voltage     dq  8   ;value to calculate
-amperage    dq  2  ;amperage input
-resistance  dq  0   ;resistance input
+voltage     dq  0   ;value to calculate
+amperage    dq  3  ;amperage input
+resistance  dq  3   ;resistance input
 
         segment .text
         global main 

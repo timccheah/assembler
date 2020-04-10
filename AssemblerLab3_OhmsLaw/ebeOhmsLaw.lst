@@ -1503,9 +1503,9 @@
    627                              <1> %endrep
    628                              <1> %endmacro
      1                                  segment .data
-     2 00000000 0800000000000000        voltage     dq  8   ;value to calculate
-     3 00000008 0200000000000000        amperage    dq  2  ;amperage input
-     4 00000010 0000000000000000        resistance  dq  0   ;resistance input
+     2 00000000 0000000000000000        voltage     dq  0   ;value to calculate
+     3 00000008 0300000000000000        amperage    dq  3  ;amperage input
+     4 00000010 0300000000000000        resistance  dq  3   ;resistance input
      5                                  
      6                                          segment .text
      7                                          global main 
