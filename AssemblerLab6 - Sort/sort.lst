@@ -1523,32 +1523,32 @@
     13                                  
     14                                  loop1:
     15 00000010 4883FA01                    cmp rdx, 1
-    16 00000014 7444                        je end
+    16 00000014 7443                        je end
     17 00000016 7F00                        jg sort_list
     18                                      
     19                                      sort_list:
-    20 00000018 4883FE30                        cmp rsi, 48
-    21 0000001C EBF2                            jmp loop1
-    22 0000001E 483B1425[38000000]              cmp rdx, [size]
-    23 00000026 488B86[00000000]                mov rax, [array + rsi]
-    24 0000002D 488B9E[08000000]                mov rbx, [array + rsi + 8]
-    25 00000034 4839D8                          cmp rax, rbx
-    26 00000037 7E18                            jle count
-    27 00000039 7F00                            jg swap
+    20 00000018 4839D6                          cmp rsi, rdx
+    21 0000001B EBF3                            jmp loop1
+    22 0000001D 483B1425[38000000]              cmp rdx, [size]
+    23 00000025 488B86[00000000]                mov rax, [array + rsi]
+    24 0000002C 488B9E[08000000]                mov rbx, [array + rsi + 8]
+    25 00000033 4839D8                          cmp rax, rbx
+    26 00000036 7E18                            jle count
+    27 00000038 7F00                            jg swap
     28                                          
     29                                          
     30                                      swap: 
-    31 0000003B 4893                            xchg rax, rbx
-    32 0000003D 488986[00000000]                mov [array + rsi], rax
-    33 00000044 48899E[08000000]                mov [array + rsi + 8], rbx
-    34 0000004B 4883C608                        add rsi, 8
-    35 0000004F EBC7                            jmp sort_list
+    31 0000003A 4893                            xchg rax, rbx
+    32 0000003C 488986[00000000]                mov [array + rsi], rax
+    33 00000043 48899E[08000000]                mov [array + rsi + 8], rbx
+    34 0000004A 4883C608                        add rsi, 8
+    35 0000004E EBC8                            jmp sort_list
     36                                         
     37                                  count:
-    38 00000051 4883C608                        add rsi, 8
-    39 00000055 48FFCA                          dec rdx
-    40 00000058 EBB6                            jmp loop1
+    38 00000050 4883C608                        add rsi, 8
+    39 00000054 48FFCA                          dec rdx
+    40 00000057 EBB7                            jmp loop1
     41                                          
     42                                  end:
-    43 0000005A 4831D2                      xor rdx, rdx
+    43 00000059 4831D2                      xor rdx, rdx
     44                                          

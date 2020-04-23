@@ -17,7 +17,7 @@ loop1:
     jg sort_list
     
     sort_list:
-        cmp rsi, 48
+        cmp rsi, rdx
         jmp loop1
         cmp rdx, [size]
         mov rax, [array + rsi]
